@@ -1,0 +1,8 @@
+<h2 ng-controller="isLogin">Welcome to Login!!!</h2>
+
+<div class="container" width="50px">
+  <h3>ID: {{user_id}}</h3>
+  <h3>Name: {{user_name}}</h3>
+  <h4>Token: {{token}}</h4>
+  <a ng-click="authService.logout()" ng-if="authService.isLogin()" class="btn btn-sm btn-primary">Logout</a>
+</div>

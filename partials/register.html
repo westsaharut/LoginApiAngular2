@@ -1,0 +1,52 @@
+<form class="form-horizontal" name="registerForm" novalidate="">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <h2>Register</h2>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-3">
+            <input ng-model="user.firstname" type="text" name="firstname" id="firstname" class="form-control"  placeholder="Name" required autofocus>
+            <span style="color:red" ng-show="registerForm.firstname.$dirty && registerForm.firstname.$invalid" id="msgErrorFirstName">Please input firstname.</span>
+        </div>
+        <div class="col-sm-3">
+            <input ng-model="user.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Lastname" required>
+            <span style="color:red" ng-show="registerForm.lastname.$dirty && registerForm.lastname.$invalid" id="msgErrorLastName">Please input lastname.</span>
+        </div>
+    </div>    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-5">
+            <input ng-model="user.email" type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+            <span style="color:red" ng-show="registerForm.email.$dirty && registerForm.email.$invalid" id="msgErrorEmail">Please input email.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-5">            
+            <input ng-model="user.username" type="text" name="username" value="" id="username" class="form-control" placeholder="Username" required>
+             <span style="color:red" ng-show="registerForm.username.$dirty && registerForm.username.$invalid" id="msgErrorUsername">Please input username.</span>             
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-5">
+            <input ng-model="user.password" type="password" name="password" value="" id="password" class="form-control" placeholder="Password" required>
+            <span style="color:red" ng-show="registerForm.password.$dirty && registerForm.password.$invalid" id="msgErrorPassword">Please input password.</span>
+        </div>
+    </div>    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Confirm Password </label>
+        <div class="col-sm-5">
+            <input ng-model="user.confirmPassword" type="password" name="confirmPassword" value="" id="confirmPassword" class="form-control" placeholder="Confirm password" required>
+            <span style="color:red" ng-show="registerForm.confirmPassword.$dirty && registerForm.confirmPassword.$invalid" id="msgErrorConfirmPassword">Please input confirm password.</span>
+            <span style="color:red" ng-show="!registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$viewValue != registerForm.password.$viewValue" id="msgErrorPasswordNotMatch">Password and Confirm password not match.</span>
+        </div>
+    </div>    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+             <button ng-click="register()" ng-disabled="registerForm.$invalid || registerForm.confirmPassword.$viewValue != registerForm.password.$viewValue" class="btn btn-default">Register</button> 
+        </div>
+    </div>
+</form>
